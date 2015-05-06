@@ -34,7 +34,25 @@ function(hljs) {
             ],
           }
         ],
-      }
+      },
+      {
+        className: 'function',
+        beginKeywords: 'procedure', end: /\{/, excludeEnd: true,
+        contains: [
+          hljs.inherit(hljs.TITLE_MODE, {begin: /[A-Z][0-9A-Za-z'_]*/}),
+          {
+            className: 'params',
+            begin: /\(/, end: /\)/,
+            excludeBegin: true,
+            excludeEnd: true,
+            contains: [
+              hljs.C_LINE_COMMENT_MODE,
+              hljs.C_BLOCK_COMMENT_MODE,
+              hljs.HASH_COMMENT_MODE
+            ],
+          }
+        ],
+      }      
     ]
   }
 }
