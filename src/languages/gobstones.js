@@ -12,6 +12,29 @@ function(hljs) {
       built_in: 'Poner Sacar Mover IrAlBorde VaciarTablero',
       operator: 'not div mod siguiente previo opuesto hayBolitas nroBolitas puedeMover minBool maxBool minDir maxDir minColor maxColor'
     },
-    contains: [ hljs.NUMBER_MODE, hljs.C_LINE_COMMENT_MODE, hljs.C_BLOCK_COMMENT_MODE, hljs.HASH_COMMENT_MODE ]
+    contains: [ 
+      hljs.NUMBER_MODE, 
+      hljs.C_LINE_COMMENT_MODE, 
+      hljs.C_BLOCK_COMMENT_MODE, 
+      hljs.HASH_COMMENT_MODE,
+      {
+        className: 'function',
+        beginKeywords: 'function', end: /\{/, excludeEnd: true,
+        contains: [
+          hljs.inherit(hljs.TITLE_MODE, {begin: /[a-z][0-9A-Za-z'_]*/}),
+          {
+            className: 'params',
+            begin: /\(/, end: /\)/,
+            excludeBegin: true,
+            excludeEnd: true,
+            contains: [
+              hljs.C_LINE_COMMENT_MODE,
+              hljs.C_BLOCK_COMMENT_MODE,
+              hljs.HASH_COMMENT_MODE
+            ],
+          }
+        ],
+      }
+    ]
   }
 }
