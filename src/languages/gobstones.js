@@ -8,7 +8,7 @@ function(hljs) {
   return {
     keywords: {
       keyword: 'program procedure function return if then else switch repeat while foreach in',
-      literal: 'Verde Azul Rojo Negro Norte Este Sur Oeste False True',
+      literal: 'Verde|10 Azul|10 Rojo|10 Negro|10 Norte|10 Este|10 Sur|10 Oeste|10 False True',
       built_in: 'Poner Sacar Mover IrAlBorde VaciarTablero',
       operator: 'not div mod siguiente previo opuesto hayBolitas nroBolitas puedeMover minBool maxBool minDir maxDir minColor maxColor'
     },

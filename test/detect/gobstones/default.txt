@@ -11,6 +11,11 @@ program
   InicializarJuego()
 }
 
+procedure IrAlOrigen() {
+  IrAlBorde(Sur)
+  IrAlBorde(Oeste)
+}
+
 function moneda() { return (Verde) }
 
 # Control del juego
