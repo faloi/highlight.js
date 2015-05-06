@@ -52,7 +52,11 @@ function(hljs) {
             ],
           }
         ],
-      }      
+      },
+      {
+        className: 'function',
+        beginKeywords: 'program', end: /\{/, excludeEnd: true
+      },
     ]
   }
 }
