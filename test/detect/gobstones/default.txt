@@ -1,0 +1,34 @@
+/* Gobstones Little Game.
+ *************************************************
+ * Juego básico en Gobstones en el cuál se muestra
+ * como manipular un personaje utilizando el modo
+ * interactivo. El objetivo del juego es agarrar
+ * todas las monedas evitando pisar las bombas.
+ */
+
+program
+{  
+  InicializarJuego()
+}
+
+function moneda() { return (Verde) }
+
+# Control del juego
+procedure InicializarJuego()
+{
+  VaciarTablero()
+  
+  contador := 1 // Pone bombas y monedas.
+  IrAlOrigen() -- Va al origen
+  while (not finDeTablero())
+	{
+    SiguienteCelda()    
+    if (contador mod 7 == 0) { Poner(moneda()) }    
+    if (contador mod 13 == 0) { Poner(bomba()) }    
+    contador := contador + 1
+  }
+  
+  # Coloca al personaje en el origen.
+  IrAlOrigen()
+  Poner(personaje())
+}
